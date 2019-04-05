@@ -1,0 +1,53 @@
+﻿<Window x:Class="Login1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Login1"
+        mc:Ignorable="d"
+        xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Login" Height="400" Width="800" ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True" Background="Transparent" WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <Rectangle RadiusY="8" RadiusX="8" Fill="White"/>
+        <Image Source="Assets/Login.jpg" Margin="310,0,0,0" Stretch="UniformToFill"/>
+        <Rectangle Margin="310,0,0,0">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#CC935E12" Offset="1"/>
+                    <GradientStop Color="#CCEA4646"/>
+                    <GradientStop Color="#CCB89128" Offset="0.566"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <StackPanel Margin="20,10,495,10">
+            <Label Content="Авторизация" FontFamily="Segoe UI Black" FontSize="24" Margin="0,10" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+            <StackPanel Margin="0,15" Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="Account" VerticalAlignment="Center" Foreground="#707070"/>
+                <TextBox x:Name="Login" materialDesign:HintAssist.Hint="Логин" Width="250" Margin="5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="Key" VerticalAlignment="Center" Foreground="#707070"/>
+                <PasswordBox x:Name="Password" materialDesign:HintAssist.Hint="Пароль" Width="250" Margin="5"/>
+            </StackPanel>
+            <Grid>
+                <CheckBox Content="Запомнить" Margin="5,10" Foreground="#707070"/>
+            </Grid>
+            <Grid>
+                <Button HorizontalAlignment="Left" Content="Вход" FontFamily="Impact" FontSize="18" Width="100" Background="#FF307CD6" BorderBrush="#FF307CD6" Click="Button_Click" Margin="0,0,0,0" VerticalAlignment="Top"/>
+                <Button Content="Регистрация" FontFamily="Impact" FontSize="18" Width="142" Background="#FF307CD6" BorderBrush="#FF307CD6" Height="Auto" HorizontalAlignment="Right" Click="Button_Click_1"/>
+            </Grid>
+            <TextBlock x:Name="Message" Text="" Foreground="Red" HorizontalAlignment="Center" Width="280" FontSize="14" FontFamily="Champagne &amp; Limousines" TextWrapping="Wrap" TextAlignment="Justify" Margin="0,10,0,0"/>
+        </StackPanel>
+        <StackPanel Margin="310,50,0,50">
+            <TextBlock Text="Английский" Foreground="White" HorizontalAlignment="Center" FontSize="48" FontFamily="Champagne &amp; Limousines" FontWeight="Bold"/>
+            <TextBlock Text="Данное приложение предназначено для изучения английскийго языка" Foreground="White" HorizontalAlignment="Center" Width="280" FontSize="24" FontFamily="Champagne &amp; Limousines" TextWrapping="Wrap" TextAlignment="Center" Margin="0,50,0,0"/>
+        </StackPanel>
+        <Button x:Name="ButtonFechar" Height="Auto" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray" Margin="765,0,10,376" Click="ButtonFechar_Click">
+            <materialDesign:PackIcon Kind="Power" HorizontalAlignment="Right" Height="14"/>
+        </Button>
+
+
+    </Grid>
+</Window>
