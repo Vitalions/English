@@ -40,7 +40,7 @@ namespace Login1
             else
             {
                 Message.Foreground = Brushes.Red;
-                Message.Text = "[Ошибка] Вы ничего не ввели";
+                Message.Text = "[Ошибка] Вы ничего не ввели!";
                 return false;
             }
         }
