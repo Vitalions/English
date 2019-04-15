@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Pizzaria1
+namespace English
 {
     /// <summary>
     /// Interação lógica para MainWindow.xam

@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace English
 {
     /// <summary>
-    /// Interação lógica para UserControlInicio.xam
+    /// Логика взаимодействия для UserControlLearn.xaml
     /// </summary>
-    public partial class UserControlInicio : UserControl
+    public partial class UserControlLearn : UserControl
     {
-        public UserControlInicio()
+        public UserControlLearn()
         {
             InitializeComponent();
         }

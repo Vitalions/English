@@ -80,7 +80,7 @@ namespace Login1
                 ada.Fill(dt);
                 if (dt.Rows[0][0].ToString() == "1")
                 {
-                    Pizzaria1.MainWindow taskWindow = new Pizzaria1.MainWindow();
+                    English.MainWindow taskWindow = new English.MainWindow();
                     taskWindow.Show();
                     this.Close();
                 }
@@ -126,6 +126,11 @@ namespace Login1
         private void ButtonFechar_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
     }
 }

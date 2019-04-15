@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Pizzaria1
+namespace English
 {
     /// <summary>
     /// Interação lógica para UserControlEscolha.xam
@@ -70,7 +70,9 @@ namespace Pizzaria1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+            MainWindow f = new MainWindow();
+            f.GridPrincipal.Children.Clear();
+            f.GridPrincipal.Children.Add(new UserControlLearn());
         }
 
         private void ArrowLeftClick(object sender, RoutedEventArgs e)
