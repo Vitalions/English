@@ -70,9 +70,8 @@ namespace English
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow f = new MainWindow();
-            f.GridPrincipal.Children.Clear();
-            f.GridPrincipal.Children.Add(new UserControlLearn());
+            Grid1.Children.Clear();
+            Grid1.Children.Add(new UserControlLearn());
         }
 
         private void ArrowLeftClick(object sender, RoutedEventArgs e)

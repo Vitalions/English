@@ -3,11 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Pizzaria1"
+             xmlns:local="clr-namespace:English"
              mc:Ignorable="d" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              Height="164.686" Width="715.915">
-    <Grid>
+    <Grid x:Name="Grid1">
         <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.8}">
             <StackPanel Orientation="Horizontal">
                 <Button  Width="28" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Black" Margin="0,68,0,67" Click="ArrowLeftClick">

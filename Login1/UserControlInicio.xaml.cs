@@ -24,5 +24,11 @@ namespace English
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Grid1.Children.Clear();
+            Grid1.Children.Add(new UserControlEscolha());
+        }
     }
 }

@@ -34,7 +34,7 @@ namespace English
         {
             DragMove();
         }
-
+       
         private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int index = ListViewMenu.SelectedIndex;
@@ -49,6 +49,10 @@ namespace English
                 case 1:
                     GridPrincipal.Children.Clear();
                     GridPrincipal.Children.Add(new UserControlEscolha());
+                    break;
+                case 2:
+                    GridPrincipal.Children.Clear();
+                    GridPrincipal.Children.Add(new UserControlLearn());
                     break;
                 case 5:
                     Login1.MainWindow login = new Login1.MainWindow();
