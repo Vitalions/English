@@ -25,12 +25,14 @@ namespace English
         public string Level { get; set; }
         public string[] EnWords { get; set; }
         public string[] RusWords { get; set; }
-        public BoxWord(string Name,  string Level, string[] EnWords, string[] RusWords)
+        public string[] Transcription { get; set; }
+        public BoxWord(string Name,  string Level, string[] RusWords,string[] EnWords, string[] Transcription)
         {
             this.Name = Name;
             this.Level = Level;
             this.EnWords = EnWords;
             this.RusWords = RusWords;
+            this.Transcription = Transcription;
         }
     }
     public partial class UserControlEscolha : UserControl
@@ -41,35 +43,52 @@ namespace English
         
         public void DBConnect()
         {
-            string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=Users.mdb;";
-            dbase = new OleDbConnection(connectionString);
-            dbase.Open();
+            try
+            {
+                string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=Users.mdb;";
+                dbase = new OleDbConnection(connectionString);
+                dbase.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка: " + ex.Message);
+            }
         }
         public UserControlEscolha()
         {
             InitializeComponent();
 
             DBConnect();
-            string query = "SELECT w_name, w_level, w_rus, w_en FROM Word";
-
-            OleDbCommand command = new OleDbCommand(query, dbase);
-
-            OleDbDataReader reader = command.ExecuteReader();
-
-            int ch = 0;
-            while (reader.Read())
+            
+            try
             {
-                string[] words1 = reader[2].ToString().Split(new char[] { ' ' });
-                string[] words2 = reader[3].ToString().Split(new char[] { ' ' });
-                //boxWords[ch] = new BoxWord(reader[0].ToString(),reader[1].ToString(),words1,words2);
-                boxWords.Add(new BoxWord(reader[0].ToString(), reader[1].ToString(), words1, words2));
-                ch++;
+                string query = "SELECT w_name, w_level, w_rus, w_en, w_tr FROM Word";
+                OleDbCommand command = new OleDbCommand(query, dbase);
+
+                OleDbDataReader reader = command.ExecuteReader();
+
+                int ch = 0;
+                while (reader.Read())
+                {
+                    string[] words1 = reader[2].ToString().Split(new char[] { ' ' });
+                    string[] words2 = reader[3].ToString().Split(new char[] { ' ' });
+                    string[] words3 = reader[4].ToString().Split(new char[] { ' ' });
+                    //boxWords[ch] = new BoxWord(reader[0].ToString(),reader[1].ToString(),words1,words2);
+                    boxWords.Add(new BoxWord(reader[0].ToString(), reader[1].ToString(), words1, words2,words3));
+                    ch++;
+                }
             }
-
-
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка: " + ex.Message);
+            }
+            //BOX 1
             BoxName1.Text = boxWords[0].Name;
             BoxLevel.Text = boxWords[0].Level;
             BoxWord1.Text = "Слов "+boxWords[0].RusWords.Length.ToString();
+            //BOX 2
+
+            //BOX 3
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

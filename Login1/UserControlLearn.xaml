@@ -15,14 +15,15 @@
         <Grid.Effect>
             <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" ShadowDepth="1"/>
         </Grid.Effect>
-        <StackPanel Margin="140,0,144,75" Grid.RowSpan="2">
+        <StackPanel Margin="140,0,142,10" Grid.RowSpan="2">
             <TextBlock x:Name="Word" Text="Word" HorizontalAlignment="Center" FontSize="36"></TextBlock>
             <TextBlock x:Name="tWord" Text="[Word]" HorizontalAlignment="Center" FontSize="16"></TextBlock>
-            <TextBlock x:Name="pWord" Text="Слово" HorizontalAlignment="Center" FontSize="36"></TextBlock>
+            <TextBlock x:Name="RusWord" Text="Слово" HorizontalAlignment="Center" FontSize="36"></TextBlock>
             <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
                 <Button Content="Предыдущая" Click="Button_Click_1"/>
                 <Button Content="Следующая" Margin="230,0,0,0" Click="Button_Click"/>
             </StackPanel>
+            <Button Content="Тренировать" Margin="156,0,156,0" Click="Button_Click_2"/>
         </StackPanel>
         <Button x:Name="ButtonFechar" Width="39" Height="40" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray" Margin="603,10,105,48" Click="ButtonFechar_Click">
             <materialDesign:PackIcon Kind="VolumeHigh" Height="35" Width="24"/>

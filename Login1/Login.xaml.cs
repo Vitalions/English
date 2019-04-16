@@ -30,9 +30,16 @@ namespace Login1
         }
         public void DBConnect()
         {
-            string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=Users.mdb;";
-            dbase = new OleDbConnection(connectionString);
-            dbase.Open();
+            try
+            {
+                string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=Users.mdb;";
+                dbase = new OleDbConnection(connectionString);
+                dbase.Open();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Ошибка: " + ex.Message);
+            }
         }
         private bool IsNullReg()
         {
@@ -72,22 +79,30 @@ namespace Login1
         {
             if(IsNullReg())
             {
-                string query = "SELECT COUNT(*) FROM users WHERE u_login = '" + Login.Text + "'and u_password = '" + Password.Password + "'";
-
-                OleDbDataAdapter ada = new OleDbDataAdapter(query, dbase);
-
-                DataTable dt = new DataTable();
-                ada.Fill(dt);
-                if (dt.Rows[0][0].ToString() == "1")
+                try
                 {
-                    English.MainWindow taskWindow = new English.MainWindow();
-                    taskWindow.Show();
-                    this.Close();
+
+                    string query = "SELECT COUNT(*) FROM users WHERE u_login = '" + Login.Text + "'and u_password = '" + Password.Password + "'";
+
+                    OleDbDataAdapter ada = new OleDbDataAdapter(query, dbase);
+
+                    DataTable dt = new DataTable();
+                    ada.Fill(dt);
+                    if (dt.Rows[0][0].ToString() == "1")
+                    {
+                        English.MainWindow taskWindow = new English.MainWindow();
+                        taskWindow.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        Message.Foreground = Brushes.Red;
+                        Message.Text = "[Ошибка] Логин или пароль не верный";
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    Message.Foreground = Brushes.Red;
-                    Message.Text = "[Ошибка] Логин или пароль не верный";
+                    MessageBox.Show("Ошибка: " + ex.Message);
                 }
             }
         }
@@ -100,13 +115,20 @@ namespace Login1
                 {
                     if (IsEn(Password.Password) && IsEn(Login.Text))
                     {
-                        string query = "INSERT INTO users (u_login, u_password)" + "VALUES('" + Login.Text + "', '" + Password.Password + "')";
+                        try
+                        {
+                            string query = "INSERT INTO users (u_login, u_password)" + "VALUES('" + Login.Text + "', '" + Password.Password + "')";
 
-                        OleDbCommand command = new OleDbCommand(query, dbase);
+                            OleDbCommand command = new OleDbCommand(query, dbase);
 
-                        command.ExecuteNonQuery();
-                        Message.Foreground = Brushes.Green;
-                        Message.Text = "Успешно зарегистрировались!";
+                            command.ExecuteNonQuery();
+                            Message.Foreground = Brushes.Green;
+                            Message.Text = "Успешно зарегистрировались!";
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Ошибка: " + ex.Message);
+                        }
                     }
                     else
                     {

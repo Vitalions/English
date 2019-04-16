@@ -114,6 +114,9 @@
     <Compile Include="UserControlLearn.xaml.cs">
       <DependentUpon>UserControlLearn.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControlTraner.xaml.cs">
+      <DependentUpon>UserControlTraner.xaml</DependentUpon>
+    </Compile>
     <Page Include="Login.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -139,6 +142,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControlLearn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlTraner.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -35,19 +35,24 @@ namespace English
             var config = SpeechConfig.FromSubscription("5f9d33519fd345b3b7b5b0d43f09d0c9", "westus");
             using (var synthesizer = new SpeechSynthesizer(config))
             {
-                MessageBox.Show(UserControlEscolha.boxWords[boxNumber].RusWords[ch]);
-              await synthesizer.SpeakTextAsync(UserControlEscolha.boxWords[boxNumber].RusWords[ch]);
+                //MessageBox.Show(UserControlEscolha.boxWords[boxNumber].RusWords[ch]);
+              await synthesizer.SpeakTextAsync(UserControlEscolha.boxWords[boxNumber].EnWords[ch]);
             }
         }
         private void ButtonFechar_Click(object sender, RoutedEventArgs e)
         {
             SynthesisToSpeakerAsync();
         }
+        public void Update()
+        {
+            Word.Text = UserControlEscolha.boxWords[boxNumber].EnWords[ch];
+            RusWord.Text = UserControlEscolha.boxWords[boxNumber].RusWords[ch];
+            tWord.Text = UserControlEscolha.boxWords[boxNumber].Transcription[ch];
+        }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            
-            Word.Text = UserControlEscolha.boxWords[boxNumber].EnWords[ch];
-            pWord.Text = UserControlEscolha.boxWords[boxNumber].RusWords[ch];
+            Update();
+           
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -55,8 +60,7 @@ namespace English
             if (ch < UserControlEscolha.boxWords[boxNumber].EnWords.Length-1)
             {
                 ch++;
-                Word.Text = UserControlEscolha.boxWords[boxNumber].EnWords[ch];
-                pWord.Text = UserControlEscolha.boxWords[boxNumber].RusWords[ch];
+                Update();
             }
         }
 
@@ -65,9 +69,13 @@ namespace English
             if (ch > 0)
             {
                 ch--;
-                Word.Text = UserControlEscolha.boxWords[boxNumber].EnWords[ch];
-                pWord.Text = UserControlEscolha.boxWords[boxNumber].RusWords[ch];
+                Update();
             }
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
