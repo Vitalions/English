@@ -36,6 +36,9 @@ namespace English
     public partial class UserControlEscolha : UserControl
     {
         public OleDbConnection dbase;
+        //public static BoxWord[] boxWords = new BoxWord[3];
+        public static List<BoxWord> boxWords = new List<BoxWord>();
+        
         public void DBConnect()
         {
             string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=Users.mdb;";
@@ -45,7 +48,7 @@ namespace English
         public UserControlEscolha()
         {
             InitializeComponent();
-            BoxWord[] boxWords = new BoxWord[3];
+
             DBConnect();
             string query = "SELECT w_name, w_level, w_rus, w_en FROM Word";
 
@@ -58,7 +61,8 @@ namespace English
             {
                 string[] words1 = reader[2].ToString().Split(new char[] { ' ' });
                 string[] words2 = reader[3].ToString().Split(new char[] { ' ' });
-                boxWords[ch] = new BoxWord(reader[0].ToString(),reader[1].ToString(),words1,words2);
+                //boxWords[ch] = new BoxWord(reader[0].ToString(),reader[1].ToString(),words1,words2);
+                boxWords.Add(new BoxWord(reader[0].ToString(), reader[1].ToString(), words1, words2));
                 ch++;
             }
 
@@ -71,7 +75,9 @@ namespace English
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Grid1.Children.Clear();
-            Grid1.Children.Add(new UserControlLearn());
+            this.Height = 400;
+            Grid1.Children.Add(new UserControlLearn(0));
+
         }
 
         private void ArrowLeftClick(object sender, RoutedEventArgs e)

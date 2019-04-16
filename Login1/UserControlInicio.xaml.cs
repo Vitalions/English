@@ -29,6 +29,7 @@ namespace English
         {
             Grid1.Children.Clear();
             Grid1.Children.Add(new UserControlEscolha());
+   
         }
     }
 }

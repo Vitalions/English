@@ -52,7 +52,7 @@ namespace English
                     break;
                 case 2:
                     GridPrincipal.Children.Clear();
-                    GridPrincipal.Children.Add(new UserControlLearn());
+                    GridPrincipal.Children.Add(new UserControlLearn(0));
                     break;
                 case 5:
                     Login1.MainWindow login = new Login1.MainWindow();
