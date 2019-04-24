@@ -20,6 +20,7 @@ namespace English
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static Grid grid;
         public MainWindow()
         {
             InitializeComponent();
@@ -34,12 +35,12 @@ namespace English
         {
             DragMove();
         }
-       
+
         private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int index = ListViewMenu.SelectedIndex;
             MoveCursorMenu(index);
-
+            grid = GridPrincipal;
             switch (index)
             {
                 case 0:

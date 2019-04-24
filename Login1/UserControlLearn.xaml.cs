@@ -21,7 +21,7 @@ namespace English
     /// </summary>
     public partial class UserControlLearn : UserControl
     {
-        int boxNumber;
+        public static int boxNumber;
         int ch = 0;
 
         
@@ -75,7 +75,13 @@ namespace English
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            //Grid1.Children.Clear();
+            //Grid1.Children.Add(new UserControlTraner());
 
+            //this.Height = 900;
+            //this.Width = 700;
+            MainWindow.grid.Children.Clear();
+            MainWindow.grid.Children.Add(new UserControlTraner());
         }
     }
 }

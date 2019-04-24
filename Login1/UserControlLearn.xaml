@@ -5,16 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:English"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             mc:Ignorable="d" Height="246.653" Width="754.812" Loaded="UserControl_Loaded">
+             mc:Ignorable="d" Height="246" Width="754.812" Loaded="UserControl_Loaded">
 
-    <Grid Background="White" Margin="10,0,0,0">
+    <Grid x:Name="Grid1" Background="White" Margin="10,0,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="98*"/>
             <RowDefinition Height="181*"/>
         </Grid.RowDefinitions>
-        <Grid.Effect>
-            <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" ShadowDepth="1"/>
-        </Grid.Effect>
         <StackPanel Margin="140,0,142,10" Grid.RowSpan="2">
             <TextBlock x:Name="Word" Text="Word" HorizontalAlignment="Center" FontSize="36"></TextBlock>
             <TextBlock x:Name="tWord" Text="[Word]" HorizontalAlignment="Center" FontSize="16"></TextBlock>

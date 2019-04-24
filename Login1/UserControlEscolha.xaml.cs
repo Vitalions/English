@@ -38,7 +38,6 @@ namespace English
     public partial class UserControlEscolha : UserControl
     {
         public OleDbConnection dbase;
-        //public static BoxWord[] boxWords = new BoxWord[3];
         public static List<BoxWord> boxWords = new List<BoxWord>();
         
         public void DBConnect()
@@ -93,9 +92,11 @@ namespace English
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Grid1.Children.Clear();
-            this.Height = 400;
-            Grid1.Children.Add(new UserControlLearn(0));
+            //Grid1.Children.Clear();
+            //this.Height = 400;
+            //Grid1.Children.Add(new UserControlLearn(0));
+            MainWindow.grid.Children.Clear();
+            MainWindow.grid.Children.Add(new UserControlLearn(0));
 
         }
 

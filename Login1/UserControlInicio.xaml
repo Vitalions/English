@@ -18,7 +18,7 @@
                             Текст
                     </TextBlock>
                 </StackPanel>
-                <Button FontFamily="Champagne &amp; Limousines" Content="Начать изучение" FontSize="18" Margin="25" Click="Button_Click"/>
+                <Button x:Name="Learn" FontFamily="Champagne &amp; Limousines" Content="Начать изучение" FontSize="18" Margin="25" Click="Button_Click"/>
             </StackPanel>
         </StackPanel>
     </Grid>
