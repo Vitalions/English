@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace English
 {
-    /// <summary>
-    /// Interação lógica para UserControlEscolha.xam
-    /// </summary>
     public class BoxWord
     {
         public string Name { get; set; }
@@ -38,8 +35,8 @@ namespace English
     public partial class UserControlEscolha : UserControl
     {
         public OleDbConnection dbase;
-        public static List<BoxWord> boxWords = new List<BoxWord>();
-        
+        public List<BoxWord> boxWords = new List<BoxWord>();
+        public int ch;
         public void DBConnect()
         {
             try
@@ -66,7 +63,6 @@ namespace English
 
                 OleDbDataReader reader = command.ExecuteReader();
 
-                int ch = 0;
                 while (reader.Read())
                 {
                     string[] words1 = reader[2].ToString().Split(new char[] { ' ' });
@@ -74,40 +70,90 @@ namespace English
                     string[] words3 = reader[4].ToString().Split(new char[] { ' ' });
                     //boxWords[ch] = new BoxWord(reader[0].ToString(),reader[1].ToString(),words1,words2);
                     boxWords.Add(new BoxWord(reader[0].ToString(), reader[1].ToString(), words1, words2,words3));
-                    ch++;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Ошибка: " + ex.Message);
             }
-            //BOX 1
-            BoxName1.Text = boxWords[0].Name;
-            BoxLevel.Text = boxWords[0].Level;
-            BoxWord1.Text = "Слов "+boxWords[0].RusWords.Length.ToString();
-            //BOX 2
-
-            //BOX 3
+            ch = boxWords.Count - 1;
+            Update();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //Grid1.Children.Clear();
-            //this.Height = 400;
-            //Grid1.Children.Add(new UserControlLearn(0));
             MainWindow.grid.Children.Clear();
-            MainWindow.grid.Children.Add(new UserControlLearn(0));
+            MainWindow.grid.Children.Add(new UserControlLearn(boxWords[ch]));
 
         }
+        private void Update()
+        {
+            BoxName1.Text = boxWords[ch].Name;
+            BoxLevel1.Text = boxWords[ch].Level;
+            BoxWord1.Text = "Слов " + boxWords[ch].RusWords.Length.ToString();
 
+            BoxName2.Text = boxWords[ch - 1].Name;
+            BoxLevel2.Text = boxWords[ch - 1].Level;
+            BoxWord2.Text = "Слов " + boxWords[ch - 1].RusWords.Length.ToString();
+
+            BoxName3.Text = boxWords[ch - 2].Name;
+            BoxLevel3.Text = boxWords[ch - 2].Level;
+            BoxWord3.Text = "Слов " + boxWords[ch - 2].RusWords.Length.ToString();
+        }
         private void ArrowLeftClick(object sender, RoutedEventArgs e)
         {
-            TrainsitionigContentSlide.OnApplyTemplate();
+            if (ch > 2)
+            {
+                BoxName1.Text = boxWords[ch-1].Name;
+                BoxLevel1.Text = boxWords[ch-1].Level;
+                BoxWord1.Text = "Слов " + boxWords[ch-1].RusWords.Length.ToString();
+
+                BoxName2.Text = boxWords[ch - 2].Name;
+                BoxLevel2.Text = boxWords[ch - 2].Level;
+                BoxWord2.Text = "Слов " + boxWords[ch - 2].RusWords.Length.ToString();
+
+                BoxName3.Text = boxWords[ch - 3].Name;
+                BoxLevel3.Text = boxWords[ch - 3].Level;
+                BoxWord3.Text = "Слов " + boxWords[ch - 3].RusWords.Length.ToString();
+                ch--;
+                TrainsitionigContentSlide.OnApplyTemplate();
+            }
         }
 
         private void ArrowRightClick(object sender, RoutedEventArgs e)
         {
-            TrainsitionigContentSlide.OnApplyTemplate();
+            if (ch<boxWords.Count-1)
+            {
+                BoxName1.Text = boxWords[ch + 1].Name;
+                BoxLevel1.Text = boxWords[ch + 1].Level;
+                BoxWord1.Text = "Слов " + boxWords[ch + 1].RusWords.Length.ToString();
+                
+
+                BoxName2.Text = boxWords[ch].Name;
+                BoxLevel2.Text = boxWords[ch].Level;
+                BoxWord2.Text = "Слов " + boxWords[ch].RusWords.Length.ToString();
+
+                BoxName3.Text = boxWords[ch-1].Name;
+                BoxLevel3.Text = boxWords[ch-1].Level;
+                BoxWord3.Text = "Слов " + boxWords[ch-1].RusWords.Length.ToString();
+                ch++;
+                //TrainsitionigContentSlide.OpeningEffect = MaterialDesignThemes.Wpf.Transitions.TransitionEffectBase.
+                //MaterialDesignThemes.Wpf.Transitions.TransitionEffectBase transitionEffectBase = new MaterialDesignThemes.Wpf.Transitions.TransitionEffectBase();
+                //MaterialDesignThemes.Wpf.Transitions.TransitioningContentBase transitioningContentBase = new MaterialDesignThemes.Wpf.Transitions.TransitioningContentBase();
+               TrainsitionigContentSlide.OnApplyTemplate();
+            }
+        }
+
+        private void Button_Click2(object sender, RoutedEventArgs e)
+        {
+            MainWindow.grid.Children.Clear();
+            MainWindow.grid.Children.Add(new UserControlLearn(boxWords[ch-1]));
+        }
+
+        private void Button_Click3(object sender, RoutedEventArgs e)
+        {
+            MainWindow.grid.Children.Clear();
+            MainWindow.grid.Children.Add(new UserControlLearn(boxWords[ch-2]));
         }
     }
 }

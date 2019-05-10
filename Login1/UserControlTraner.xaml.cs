@@ -21,30 +21,32 @@ namespace English
     /// </summary>
     public partial class UserControlTraner : UserControl
     {
+        public BoxWord boxWords;
         int ch=0,min=1,max=6;
         bool English = true;
         
-        int boxNumber = UserControlLearn.boxNumber;
-        public UserControlTraner()
+
+        public UserControlTraner(BoxWord boxWords)
         {
+            this.boxWords = boxWords;
             InitializeComponent();
         }
         public void Update()
         {
             if (English)
             {
-                Word.Text = UserControlEscolha.boxWords[boxNumber].EnWords[ch];
-                tWord.Text = UserControlEscolha.boxWords[boxNumber].Transcription[ch];
+                Word.Text = boxWords.EnWords[ch];
+                tWord.Text = boxWords.Transcription[ch];
             }
             else
             {
-                Word.Text = UserControlEscolha.boxWords[boxNumber].RusWords[ch];
+                Word.Text = boxWords.RusWords[ch];
             }
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
-            if (button.Content.ToString() == UserControlEscolha.boxWords[boxNumber].RusWords[ch] || button.Content.ToString() == UserControlEscolha.boxWords[boxNumber].EnWords[ch])
+            if (button.Content.ToString() == boxWords.RusWords[ch] || button.Content.ToString() == boxWords.EnWords[ch])
             {
 
                 ch++;
@@ -53,13 +55,13 @@ namespace English
                     min++;
                     max++;
                 }
-                if (ch > UserControlEscolha.boxWords[boxNumber].EnWords.Length - 1 && !English)
+                if (ch > boxWords.EnWords.Length - 1 && !English)
                 {
                     MainWindow.grid.Children.Clear();
                     MainWindow.grid.Children.Add(new UserControlEscolha());
-                    MessageBox.Show("Вы успешно прошли тренировку!")
+                    MessageBox.Show("Вы успешно прошли тренировку!");
                 }
-                if (ch > UserControlEscolha.boxWords[boxNumber].EnWords.Length - 1)
+                if (ch > boxWords.EnWords.Length - 1)
                 {
                     ch = 0;
                     English = false;
@@ -92,11 +94,11 @@ namespace English
                             {
                                 if (English)
                                 {
-                                    T1.Content = UserControlEscolha.boxWords[boxNumber].RusWords[a - 1];
+                                    T1.Content = boxWords.RusWords[a - 1];
                                 }
                                 else
                                 {
-                                    T1.Content = UserControlEscolha.boxWords[boxNumber].EnWords[a - 1];
+                                    T1.Content = boxWords.EnWords[a - 1];
                                 }
                                 break;
                             }
@@ -104,11 +106,11 @@ namespace English
                             {
                                 if (English)
                                 {
-                                    T2.Content = UserControlEscolha.boxWords[boxNumber].RusWords[a - 1];
+                                    T2.Content = boxWords.RusWords[a - 1];
                                 }
                                 else
                                 {
-                                    T2.Content = UserControlEscolha.boxWords[boxNumber].EnWords[a - 1];
+                                    T2.Content = boxWords.EnWords[a - 1];
                                 }
                                 break;
                             }
@@ -116,11 +118,11 @@ namespace English
                             {
                                 if (English)
                                 {
-                                    T3.Content = UserControlEscolha.boxWords[boxNumber].RusWords[a - 1];
+                                    T3.Content = boxWords.RusWords[a - 1];
                                 }
                                 else
                                 {
-                                    T3.Content = UserControlEscolha.boxWords[boxNumber].EnWords[a - 1];
+                                    T3.Content = boxWords.EnWords[a - 1];
                                 }
                                 break;
                             }
@@ -128,11 +130,11 @@ namespace English
                             {
                                 if (English)
                                 {
-                                    T4.Content = UserControlEscolha.boxWords[boxNumber].RusWords[a - 1];
+                                    T4.Content = boxWords.RusWords[a - 1];
                                 }
                                 else
                                 {
-                                    T4.Content = UserControlEscolha.boxWords[boxNumber].EnWords[a - 1];
+                                    T4.Content = boxWords.EnWords[a - 1];
                                 }
                                 break;
                             }
@@ -140,11 +142,11 @@ namespace English
                             {
                                 if (English)
                                 {
-                                    T5.Content = UserControlEscolha.boxWords[boxNumber].RusWords[a - 1];
+                                    T5.Content = boxWords.RusWords[a - 1];
                                 }
                                 else
                                 {
-                                    T5.Content = UserControlEscolha.boxWords[boxNumber].EnWords[a - 1];
+                                    T5.Content = boxWords.EnWords[a - 1];
                                 }
                                 break;
                             }

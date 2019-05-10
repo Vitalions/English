@@ -17,9 +17,6 @@ using System.Windows.Shapes;
 
 namespace Login1
 {
-    /// <summary>
-    /// Interação lógica para MainWindow.xam
-    /// </summary>
     public partial class MainWindow : Window
     {
         public OleDbConnection dbase;
@@ -43,6 +40,7 @@ namespace Login1
         }
         private bool IsNullReg()
         {
+  
             if (Login.Text.Length > 0 && Password.Password.Length > 0) return true;
             else
             {
@@ -90,7 +88,7 @@ namespace Login1
                     ada.Fill(dt);
                     if (dt.Rows[0][0].ToString() == "1")
                     {
-                        English.MainWindow taskWindow = new English.MainWindow();
+                        English.MainWindow taskWindow = new English.MainWindow(Login.Text);
                         taskWindow.Show();
                         this.Close();
                     }
@@ -117,13 +115,28 @@ namespace Login1
                     {
                         try
                         {
-                            string query = "INSERT INTO users (u_login, u_password)" + "VALUES('" + Login.Text + "', '" + Password.Password + "')";
+                            string query1 = "SELECT COUNT(*) FROM users WHERE u_login = '" + Login.Text + "'";
 
-                            OleDbCommand command = new OleDbCommand(query, dbase);
+                            OleDbDataAdapter ada = new OleDbDataAdapter(query1, dbase);
 
-                            command.ExecuteNonQuery();
-                            Message.Foreground = Brushes.Green;
-                            Message.Text = "Успешно зарегистрировались!";
+                            DataTable dt = new DataTable();
+                            ada.Fill(dt);
+                            if (dt.Rows[0][0].ToString() == "1")
+                            {
+                                Message.Foreground = Brushes.Red;
+                                Message.Text = "[Ошибка] Пользователь с таким логинам уже зарегестрирован!";
+                            }
+                            else
+                            {
+                                string query2 = "INSERT INTO users (u_login, u_password)" + "VALUES('" + Login.Text + "', '" + Password.Password + "')";
+
+                                OleDbCommand command = new OleDbCommand(query2, dbase);
+
+                                command.ExecuteNonQuery();
+                                Message.Foreground = Brushes.Green;
+                                Message.Text = "Успешно зарегистрировались!";
+                            }
+
                         }
                         catch (Exception ex)
                         {

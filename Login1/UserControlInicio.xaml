@@ -12,10 +12,16 @@
             <StackPanel Width="469">
                 <StackPanel Margin="10">
                     <TextBlock Text="Вы изучили: " FontSize="50" FontFamily="Cooper Black" Foreground="#FFC00000"/>
-                    <TextBlock Text="Number" FontSize="25" FontFamily="Champagne &amp; Limousines" FontWeight="Bold" Margin="5"/>
-                    <TextBlock Text="Текст" FontSize="20" FontFamily="Champagne &amp; Limousines" Margin="5"/>
-                    <TextBlock FontSize="18" Width="250" FontFamily="Champagne &amp; Limousines" Margin="5" TextWrapping="Wrap">
-                            Текст
+                    <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Тем: " FontSize="25" FontFamily="Champagne &amp; Limousines" FontWeight="Bold" Margin="5"/>
+                    <TextBlock x:Name="tTopics" FontSize="25" FontFamily="Champagne &amp; Limousines" FontWeight="Bold" Margin="5"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Слов: " FontSize="20" FontFamily="Champagne &amp; Limousines" Margin="5"/>
+                        <TextBlock x:Name="tWords" FontSize="20" FontFamily="Champagne &amp; Limousines" Margin="5"/>
+                    </StackPanel>
+                    <TextBlock FontSize="18" FontFamily="Champagne &amp; Limousines" Margin="82,5,99,5" TextWrapping="Wrap">
+                            За сегодня вы изучили: 30 слов
                     </TextBlock>
                 </StackPanel>
                 <Button x:Name="Learn" FontFamily="Champagne &amp; Limousines" Content="Начать изучение" FontSize="18" Margin="25" Click="Button_Click"/>

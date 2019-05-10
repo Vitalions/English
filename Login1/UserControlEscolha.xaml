@@ -23,12 +23,12 @@
                     <Grid Grid.Column="0" Background="#FFF3F3F3" Margin="10">
 
                         <StackPanel x:Name="box1" Width="200">
-                            <TextBlock x:Name="BoxName1" Margin="10" FontFamily="Arial Black" FontSize="12" Text="" Foreground="#FFC00000"/>
-                            <TextBlock x:Name="BoxLevel" FontSize="12" Margin="5" TextWrapping="Wrap" FontFamily="Champagne &amp; Limousines" HorizontalAlignment="Center">
-
+                            <TextBlock x:Name="BoxName1" Margin="10" FontFamily="Arial Black" FontSize="12" Text="100 глаголов (часть 1)" Foreground="#FFC00000"/>
+                            <TextBlock x:Name="BoxLevel1" FontSize="12" Margin="5" TextWrapping="Wrap" FontFamily="Champagne &amp; Limousines" HorizontalAlignment="Center">
+                              Начальный
                             </TextBlock>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,35,0,0">
-                                <TextBlock x:Name="BoxWord1" Text="" VerticalAlignment="Center" Margin="10" FontSize="20" FontFamily="Champagne &amp; Limousines"/>
+                                <TextBlock x:Name="BoxWord1" Text="Слов 25" VerticalAlignment="Center" Margin="10" FontSize="20" FontFamily="Champagne &amp; Limousines"/>
                                 <Button Width="100" Content="Изучить" FontFamily="Champagne &amp; Limousines" Margin="10" Click="Button_Click"/>
                             </StackPanel>
                         </StackPanel>
@@ -38,13 +38,13 @@
                     </Grid>
                     <Grid Grid.Column="1" Background="#FFF3F3F3" Margin="10">
                         <StackPanel x:Name="box2" Width="200">
-                            <TextBlock Margin="10" FontFamily="Arial Black" FontSize="12" Text="100 глаголов (часть 2)" Foreground="#FFC00000"/>
-                            <TextBlock FontSize="12" Margin="5" TextWrapping="Wrap" FontFamily="Champagne &amp; Limousines" HorizontalAlignment="Center">
+                            <TextBlock x:Name="BoxName2" Margin="10" FontFamily="Arial Black" FontSize="12" Text="100 глаголов (часть 2)" Foreground="#FFC00000"/>
+                            <TextBlock x:Name="BoxLevel2" FontSize="12" Margin="5" TextWrapping="Wrap" FontFamily="Champagne &amp; Limousines" HorizontalAlignment="Center">
                             Начальный
                             </TextBlock>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,35,0,0">
-                                <TextBlock Text="Слов 25" VerticalAlignment="Center" Margin="10" FontSize="20" FontFamily="Champagne &amp; Limousines"/>
-                                <Button Width="100" Content="Изучить" FontFamily="Champagne &amp; Limousines" Margin="10"/>
+                                <TextBlock x:Name="BoxWord2" Text="Слов 25" VerticalAlignment="Center" Margin="10" FontSize="20" FontFamily="Champagne &amp; Limousines"/>
+                                <Button Width="100" Content="Изучить" FontFamily="Champagne &amp; Limousines" Margin="10" Click="Button_Click2"/>
                             </StackPanel>
                         </StackPanel>
                         <Grid.Effect>
@@ -54,13 +54,13 @@
                     <Grid Grid.Column="2" Background="#FFF3F3F3" Margin="10">
 
                         <StackPanel x:Name="box3" Width="200">
-                            <TextBlock Margin="10" FontFamily="Arial Black" FontSize="12" Text="100 прилагательных" Foreground="#FFC00000"/>
-                            <TextBlock FontSize="12" Margin="5" TextWrapping="Wrap" FontFamily="Champagne &amp; Limousines" HorizontalAlignment="Center">
+                            <TextBlock x:Name="BoxName3" Margin="10" FontFamily="Arial Black" FontSize="12" Text="100 прилагательных" Foreground="#FFC00000"/>
+                            <TextBlock x:Name="BoxLevel3" FontSize="12" Margin="5" TextWrapping="Wrap" FontFamily="Champagne &amp; Limousines" HorizontalAlignment="Center">
                             Начальный
                             </TextBlock>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,35,0,0">
-                                <TextBlock Text="Слов 25" VerticalAlignment="Center" Margin="10" FontSize="20" FontFamily="Champagne &amp; Limousines"/>
-                                <Button Width="100" Content="Изучить" FontFamily="Champagne &amp; Limousines" Margin="10"/>
+                                <TextBlock x:Name="BoxWord3" Text="Слов 25" VerticalAlignment="Center" Margin="10" FontSize="20" FontFamily="Champagne &amp; Limousines"/>
+                                <Button Width="100" Content="Изучить" FontFamily="Champagne &amp; Limousines" Margin="10" Click="Button_Click3"/>
                             </StackPanel>
                         </StackPanel>
                         <Grid.Effect>

@@ -21,14 +21,15 @@ namespace English
     /// </summary>
     public partial class UserControlLearn : UserControl
     {
-        public static int boxNumber;
+        public BoxWord boxWords;
         int ch = 0;
-
         
-        public UserControlLearn(int s)
+        
+        public UserControlLearn(BoxWord boxWords)
         {
+
             InitializeComponent();
-            boxNumber = s;
+            this.boxWords = boxWords;
         }
         public async void SynthesisToSpeakerAsync()
         {
@@ -36,7 +37,7 @@ namespace English
             using (var synthesizer = new SpeechSynthesizer(config))
             {
                 //MessageBox.Show(UserControlEscolha.boxWords[boxNumber].RusWords[ch]);
-              await synthesizer.SpeakTextAsync(UserControlEscolha.boxWords[boxNumber].EnWords[ch]);
+              await synthesizer.SpeakTextAsync(boxWords.EnWords[ch]);
             }
         }
         private void ButtonFechar_Click(object sender, RoutedEventArgs e)
@@ -45,9 +46,9 @@ namespace English
         }
         public void Update()
         {
-            Word.Text = UserControlEscolha.boxWords[boxNumber].EnWords[ch];
-            RusWord.Text = UserControlEscolha.boxWords[boxNumber].RusWords[ch];
-            tWord.Text = UserControlEscolha.boxWords[boxNumber].Transcription[ch];
+            Word.Text = boxWords.EnWords[ch];
+            RusWord.Text = boxWords.RusWords[ch];
+            tWord.Text = boxWords.Transcription[ch];
         }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
@@ -57,7 +58,7 @@ namespace English
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (ch < UserControlEscolha.boxWords[boxNumber].EnWords.Length-1)
+            if (ch < boxWords.EnWords.Length-1)
             {
                 ch++;
                 Update();
@@ -79,9 +80,9 @@ namespace English
             //Grid1.Children.Add(new UserControlTraner());
 
             //this.Height = 900;
-            //this.Width = 700;
+            //this.Width = 700
             MainWindow.grid.Children.Clear();
-            MainWindow.grid.Children.Add(new UserControlTraner());
+            MainWindow.grid.Children.Add(new UserControlTraner(boxWords));
         }
     }
 }

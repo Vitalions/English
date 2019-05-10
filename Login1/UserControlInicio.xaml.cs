@@ -15,20 +15,18 @@ using System.Windows.Shapes;
 
 namespace English
 {
-    /// <summary>
-    /// Interação lógica para UserControlInicio.xam
-    /// </summary>
     public partial class UserControlInicio : UserControl
     {
         public UserControlInicio()
         {
             InitializeComponent();
+            tTopics.Text = MainWindow.user.TopicsLearn.ToString();
+            tWords.Text = MainWindow.user.WordsLearn.ToString();
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //Grid1.Children.Clear();
-            //Grid1.Children.Add(new UserControlEscolha());
             MainWindow.grid.Children.Clear();
             MainWindow.grid.Children.Add(new UserControlEscolha());
 

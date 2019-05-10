@@ -46,17 +46,11 @@
                 </ListViewItem>
                 <ListViewItem Height="60">
                     <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="BookOpenVariant" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
-                        <TextBlock Text="Словарь" FontSize="17" VerticalAlignment="Center" Margin="20 0"/>
-                    </StackPanel>
-                </ListViewItem>
-                <ListViewItem Height="60">
-                    <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="CommentPlusOutline" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
                         <TextBlock Text="Добавить тему" FontSize="17" VerticalAlignment="Center" Margin="20 0"/>
                     </StackPanel>
                 </ListViewItem>
-                <ListViewItem Height="60">
+                <ListViewItem x:Name="ListViewAdmin" Height="60">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Database" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
                         <TextBlock Text="Админка" FontSize="17" VerticalAlignment="Center" Margin="20 0"/>

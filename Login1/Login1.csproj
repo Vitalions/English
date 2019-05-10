@@ -87,6 +87,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -113,6 +115,9 @@
     </Compile>
     <Compile Include="UserControlLearn.xaml.cs">
       <DependentUpon>UserControlLearn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlLearnAdd.xaml.cs">
+      <DependentUpon>UserControlLearnAdd.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControlTraner.xaml.cs">
       <DependentUpon>UserControlTraner.xaml</DependentUpon>
@@ -142,6 +147,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControlLearn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlLearnAdd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
